@@ -4,7 +4,7 @@ Angular está en la raíz. Spring Boot está en `backend/`. El desarrollo local 
 
 ## Ejecución
 - Frontend: `npm ci` y `npm start -- --port 4200`.
-- Backend: Java 21, Oracle en localhost:1522/freepdb1; definir DB_USERNAME y DB_PASSWORD. Desde backend: `mvnw.cmd spring-boot:run`.
+- Backend: Java 21, Oracle en localhost:1522/freepdb1; definir DB_USERNAME y DB_PASSWORD. En un checkout de la rama backend: `mvnw.cmd spring-boot:run`.
 - Abrir http://localhost:4200/productos y Swagger http://localhost:8080/swagger-ui.html.
 - Reiniciar ambos procesos si estaban ejecutando la versión de sesión 7.
 
@@ -21,3 +21,9 @@ Pruebas Java: 10 aprobadas, sin errores. Reproducir con `mvnw.cmd "-Dtest=Catego
 
 ## Entrega
 Rama feature/productos-condori basada en develop. La base de sesión 7 se importó al repositorio inicialmente vacío; no se fusionó ni modificó autonoma07. Ver docs/capturas-practica08.md para las doce evidencias que exige la guía. PDF disponible: [Condori_LP2_S8_Practica.pdf](docs/Condori_LP2_S8_Practica.pdf), con 18 páginas, 16 capturas reales y observaciones sobre la evidencia pendiente. Generador: docs/generar_documentacion.py. Pull request: https://github.com/Irxui666/tarea08/pull/1.
+
+
+## Ramas de entrega
+- frontend: aplicación Angular y documentación PDF.
+- backend: aplicación Spring Boot con pom.xml en la raíz.
+- Las ramas develop y feature/productos-condori se conservan como historial de la entrega original.
