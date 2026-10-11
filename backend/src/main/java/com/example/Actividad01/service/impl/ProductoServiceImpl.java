@@ -37,7 +37,7 @@ public class ProductoServiceImpl implements ProductoService{
             );
         }
 
-        Categoria categoria = buscarCategoria(t.getCategoria());
+        Categoria categoria = buscarCategoria(t.getCategoriaId());
 
         Producto producto = new Producto();
         producto.setNombre(nombre);
@@ -67,7 +67,7 @@ public class ProductoServiceImpl implements ProductoService{
             );
         }
 
-        Categoria categoria = buscarCategoria(t.getCategoria());
+        Categoria categoria = buscarCategoria(t.getCategoriaId());
 
         producto.setNombre(nombre);
         producto.setPrecio(t.getPrecio());
@@ -100,7 +100,10 @@ public class ProductoServiceImpl implements ProductoService{
                         "Producto no encontrado con id: "+ aLong
                 )
         );
-        productoRepository.delete(producto);
+        if (!Boolean.TRUE.equals(producto.getEstado()))
+            throw new ReglaNegocioException("El producto ya está inactivo");
+        producto.setEstado(false);
+        productoRepository.save(producto);
     }
 
     @Override
@@ -112,12 +115,24 @@ public class ProductoServiceImpl implements ProductoService{
                 .toList();
     }
 
+    @Override
+    @Transactional(readOnly = true)
+    public com.example.Actividad01.dto.PaginaResponseDTO<ProductoResponseDTO> listar(int pagina, int tamanio, String ordenarPor, String direccion) {
+        if (!java.util.Set.of("id", "nombre", "precio", "stock").contains(ordenarPor))
+            throw new ReglaNegocioException("Campo de orden no permitido: " + ordenarPor);
+        if (pagina < 0 || tamanio < 1 || tamanio > 100 || !("asc".equals(direccion) || "desc".equals(direccion)))
+            throw new ReglaNegocioException("Parámetros de paginación inválidos");
+        var sort = org.springframework.data.domain.Sort.by(org.springframework.data.domain.Sort.Direction.fromString(direccion), ordenarPor).and(org.springframework.data.domain.Sort.by("id"));
+        var page = productoRepository.findAll(org.springframework.data.domain.PageRequest.of(pagina, tamanio, sort)).map(this::convertirResponse);
+        return com.example.Actividad01.dto.PaginaResponseDTO.from(page);
+    }
+
     private Categoria buscarCategoria(Long categoriaId){
-        return categoriaRepository.findById(categoriaId).orElseThrow(()->
-                new RecursosNoEncontradoException(
-                        "Categoria no encontrada con id: "+ categoriaId
-                )
-        );
+        Categoria categoria = categoriaRepository.findById(categoriaId).orElseThrow(() ->
+                new RecursosNoEncontradoException("Categoria no encontrada con id: " + categoriaId));
+        if (!Boolean.TRUE.equals(categoria.getEstado()))
+            throw new ReglaNegocioException("La categoría elegida está inactiva. Elija una categoría activa.");
+        return categoria;
     }
 
     private ProductoResponseDTO convertirResponse(Producto producto){
