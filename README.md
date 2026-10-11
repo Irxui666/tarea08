@@ -17,7 +17,7 @@ Backend adaptado a categoriaId, paginación, orden permitido, rechazo de categor
 `npm run build`: correcto, chunks diferidos de Productos.
 `npm test -- --watch=false`: 18 pruebas aprobadas en 13 archivos.
 `mvnw.cmd -DskipTests package`: correcto.
-Pruebas Java: ejecutar `mvnw.cmd "-Dtest=CategoriaServiceRulesTest,ClienteServiceRulesTest,ProductoServiceRulesTest" test`.
+Pruebas Java: 10 aprobadas, sin errores. Reproducir con `mvnw.cmd "-Dtest=CategoriaServiceRulesTest,ClienteServiceRulesTest,ProductoServiceRulesTest" test`.
 
 ## Entrega
 Rama feature/productos-condori basada en develop. La base de sesión 7 se importó al repositorio inicialmente vacío; no se fusionó ni modificó autonoma07. Ver docs/capturas-practica08.md para las doce evidencias que exige la guía. El PDF Condori_LP2_S8_Practica.pdf debe generarse con capturas reales de Productos; las capturas de sesión 7 no sirven para esta práctica.

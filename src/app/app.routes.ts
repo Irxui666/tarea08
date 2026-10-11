@@ -27,7 +27,7 @@ export const routes: Routes = [
   },
   {
     path: '**',
-    title: 'PÃ¡gina no encontrada',
+    title: 'Página no encontrada',
     loadComponent: () =>
       import('./shared/pages/no-encontrado/no-encontrado').then((m) => m.NoEncontrado),
   },
