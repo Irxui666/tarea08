@@ -20,4 +20,4 @@ Backend adaptado a categoriaId, paginación, orden permitido, rechazo de categor
 Pruebas Java: 10 aprobadas, sin errores. Reproducir con `mvnw.cmd "-Dtest=CategoriaServiceRulesTest,ClienteServiceRulesTest,ProductoServiceRulesTest" test`.
 
 ## Entrega
-Rama feature/productos-condori basada en develop. La base de sesión 7 se importó al repositorio inicialmente vacío; no se fusionó ni modificó autonoma07. Ver docs/capturas-practica08.md para las doce evidencias que exige la guía. El PDF Condori_LP2_S8_Practica.pdf debe generarse con capturas reales de Productos; las capturas de sesión 7 no sirven para esta práctica.
+Rama feature/productos-condori basada en develop. La base de sesión 7 se importó al repositorio inicialmente vacío; no se fusionó ni modificó autonoma07. Ver docs/capturas-practica08.md para las doce evidencias que exige la guía. PDF disponible: [Condori_LP2_S8_Practica.pdf](docs/Condori_LP2_S8_Practica.pdf), con 18 páginas, 16 capturas reales y observaciones sobre la evidencia pendiente. Generador: docs/generar_documentacion.py. Pull request: https://github.com/Irxui666/tarea08/pull/1.

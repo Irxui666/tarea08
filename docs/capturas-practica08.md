@@ -15,4 +15,4 @@ Preparar al menos tres categorías (una inactiva), más de cinco productos y un 
 11. Baja: DELETE 204, fila Inactivo y botón deshabilitado.
 12. Categorías: eliminar una con productos, DELETE 409 y mensaje.
 
-Las pruebas unitarias no reemplazan las capturas. Aún no se adjuntan imágenes ni se afirma que las doce pruebas integradas hayan sido ejecutadas. El PDF se completará a partir de estas evidencias reales.
+Informe generado: Condori_LP2_S8_Practica.pdf (18 páginas y 16 capturas en capturas/). Falta evidencia visual específica del caso 9 (categoría inactiva). La petición ascendente del caso 2 está visible, pero su tabla ya aparece descendente. El caso 5 no muestra una categoría inactiva de control y el caso 8 no compara variantes de mayúsculas. El informe distingue estas limitaciones de los resultados acreditados. Editar productos inactivos está permitido.
