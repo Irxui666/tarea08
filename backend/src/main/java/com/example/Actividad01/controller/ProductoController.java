@@ -20,13 +20,13 @@ public class ProductoController {
 
 
     @GetMapping
-    public ResponseEntity<Iterable<ProductoResponseDTO>> findAll(){
-        return ResponseEntity.ok(
-                productoService.readAll()
-        );
+    public ResponseEntity<com.example.Actividad01.dto.PaginaResponseDTO<ProductoResponseDTO>> findAll(
+            @RequestParam(defaultValue = "0") int pagina,
+            @RequestParam(defaultValue = "10") int tamanio,
+            @RequestParam(defaultValue = "nombre") String ordenarPor,
+            @RequestParam(defaultValue = "asc") String direccion) {
+        return ResponseEntity.ok(productoService.listar(pagina, tamanio, ordenarPor, direccion));
     }
-
-
 
     @GetMapping("/{id}")
     public ResponseEntity<ProductoResponseDTO> findById(@PathVariable Long id){

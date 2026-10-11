@@ -16,7 +16,7 @@ public class ProductoRequestDTO {
     @Size(
             min = 3,
             max = 150,
-            message = "El nombre de la categoria entre 3 y 150 caracteres"
+            message = "El nombre del producto debe tener entre 3 y 150 caracteres"
     )
     private String nombre;
     @NotNull(message = "El precio del producto es obligatorio")
@@ -35,5 +35,5 @@ public class ProductoRequestDTO {
     private Boolean estado;
     @NotNull(message = "La categoria es obligatoria")
     @Positive(message = "El identificador de categoria debe ser valido")
-    private Long categoria;
+    private Long categoriaId;
 }
