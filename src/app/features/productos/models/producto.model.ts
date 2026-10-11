@@ -14,5 +14,8 @@ export interface ProductoRequest {
   precio: number;
   stock: number;
   estado: boolean;
-  categoria: number;
+  categoriaId: number;
 }
+
+export type OrdenProducto = 'id' | 'nombre' | 'precio' | 'stock';
+export type Direccion = 'asc' | 'desc';
